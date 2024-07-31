@@ -1,0 +1,22 @@
+<!-- Header-Area-Start -->
+<header class="header-area parallax-bg" id="home-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="header-text">
+                    <h3 class="typer-title wow fadeInUp" data-wow-delay="0.2s">I'm ui/ux designer</h3>
+                    <h1 class="title wow fadeInUp" data-wow-delay="0.3s"></h1>
+                    <div class="desc wow fadeInUp" data-wow-delay="0.4s">
+                        <p></p>
+                    </div>
+                    {{-- @if ($hero->btn_text)
+                        <a href="{{ $hero->btn_url }}" class="button-dark mouse-dir wow fadeInUp"
+                            data-wow-delay="0.5s">{{ $hero->btn_text }}<span class="dir-part"></span></a>
+                    @endif --}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header-Area-End -->
