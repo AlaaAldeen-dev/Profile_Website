@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>General Dashboard &mdash; Stisla</title>
 
@@ -74,7 +75,7 @@
     <script src="{{ asset('admin/assets') }}/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
 
     <!-- Page Specific JS File -->
-    <script src="{{ asset('admin/assets') }}/js/page/index-0.js"></script>
+    {{-- <script src="{{ asset('admin/assets') }}/js/page/index-0.js"></script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
@@ -82,6 +83,76 @@
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets') }}/js/scripts.js"></script>
     <script src="{{ asset('admin/assets') }}/js/custom.js"></script>
+
+    <script>
+
+$.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+
+        /* Dynamic Delete */
+        $(document).ready(function() {
+
+$('.delete-item').on('click', function(e) {
+    e.preventDefault();
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let url = $(this).attr('href');
+            console.log(url);
+            $.ajax({
+                method: 'DELETE',
+                url: url,
+                success: function(data) {
+                    if (data.status === 'success') {
+                        Swal.fire(
+                            'Deleted!',
+                            data.message,
+                            'success'
+                        )
+                        window.location.reload();
+                    } else if (data.status === 'error') {
+                        Swal.fire(
+                            'Error!',
+                            data.message,
+                            'error'
+                        )
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+
+        }
+    })
+})
+})
+    </script>
+    @stack('scripts')
 </body>
 
 </html>
