@@ -77,6 +77,6 @@ class TyperTitleController extends Controller
     {
         $typerTitle = TyperTitle::findOrFail($id);
         $typerTitle->delete();
-        return response(['status' => 'success', 'message' => 'admin.Deleted Successfully']);
+        return response(['status' => 'success', 'message' => 'Deleted Successfully']);
     }
 }

@@ -3,7 +3,7 @@
     <section class="section">
         <div class="section-header">
 
-            <h1>Typer Title</h1>
+            <h1>Service</h1>
         </div>
 
         <div class="section-body">
@@ -11,19 +11,30 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create Title</h4>
+                            <h4>Create Service</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.typer-title.store') }}" method="POST">
+                            <form action="{{ route('admin.service.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title">
-                                        @error('title')
+                                        <input type="text" class="form-control" name="name">
+                                        @error('name')
                                             <code>{{ $message }}</code>
                                         @enderror
                                     </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <textarea name="description" id="" class="form-control" style="height: 100px"></textarea>
+                                        @error('description')
+                                            <code>{{ $message }}</code>
+                                        @enderror
+                                    </div>
+
                                 </div>
 
 

@@ -22,8 +22,8 @@
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="title"
                                             value="{{ @$hero->title }}">
-                                            @error('title')
-                                            <code>{{$message}}</code>
+                                        @error('title')
+                                            <code>{{ $message }}</code>
                                         @enderror
                                     </div>
 
@@ -35,8 +35,8 @@
                                     <div class="col-sm-12 col-md-7">
                                         <textarea name="sub_title" id="" class="form-control" style="height: 100px">{{ @$hero->sub_title }}</textarea>
                                         @error('sub_title')
-                                        <code>{{$message}}</code>
-                                    @enderror
+                                            <code>{{ $message }}</code>
+                                        @enderror
                                     </div>
 
                                 </div>
@@ -46,10 +46,10 @@
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="btn_text"
                                             value="{{ @$hero->btn_text }}">
-                                            @error('btn_text')
-                                            <code>{{$message}}</code>
+                                        @error('btn_text')
+                                            <code>{{ $message }}</code>
                                         @enderror
-                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -58,10 +58,10 @@
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="btn_url"
                                             value="{{ @$hero->btn_url }}">
-                                            @error('btn_url')
-                                            <code>{{$message}}</code>
+                                        @error('btn_url')
+                                            <code>{{ $message }}</code>
                                         @enderror
-                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -85,8 +85,8 @@
                                             <input type="file" name="image" class="custom-file-input" id="customFile">
                                             <label class="custom-file-label" for="customFile">Choose File</label>
                                             @error('image')
-                                            <code>{{$message}}</code>
-                                        @enderror
+                                                <code>{{ $message }}</code>
+                                            @enderror
                                         </div>
                                     </div>
 

@@ -16,9 +16,9 @@
 </head>
 
 <body>
-    <div class="preloader">
+    {{-- <div class="preloader">
         <img src="{{ asset('frontend/assets') }}/images/preloader.gif" alt="">
-    </div>
+    </div> --}}
 
     @include('frontend.layouts.navbar')
 
