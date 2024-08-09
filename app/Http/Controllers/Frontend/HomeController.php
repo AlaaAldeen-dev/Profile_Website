@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         $hero = Hero::first();
-        $typeriles = TyperTitle::all();
-        return view('frontend.home', compact('hero', 'typeriles'));
+        $typerTitles = TyperTitle::all();
+        return view('frontend.home', compact('hero', 'typerTitles'));
     }
 }
